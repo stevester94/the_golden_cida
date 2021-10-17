@@ -134,7 +134,7 @@ domain_net      = build_sequential(parameters["domain_net"])
 source_ds = Dummy_CIDA_Dataset(
     normalize_domain=True,
     num_classes=16,
-    num_unique_examples_per_class=500,
+    num_unique_examples_per_class=100,
     domains=source_snrs,
     x_shape=(2,128)
 )
@@ -146,7 +146,7 @@ source_ds = Lazy_Map(
 target_ds = Dummy_CIDA_Dataset(
     normalize_domain=True,
     num_classes=16,
-    num_unique_examples_per_class=500,
+    num_unique_examples_per_class=100,
     domains=target_snrs,
     x_shape=(2,128)
 )

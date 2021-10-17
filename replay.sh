@@ -51,7 +51,7 @@ cat << EOF | ./run.sh -
       "class":"Linear",
       "kargs":{
         "in_features":1,
-        "out_features":256
+        "out_features":128
       }
     }
   ],
@@ -59,7 +59,7 @@ cat << EOF | ./run.sh -
     {
       "class":"Linear",
       "kargs":{
-        "in_features":512,
+        "in_features":384,
         "out_features":256
       }
     },

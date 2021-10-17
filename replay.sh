@@ -160,13 +160,6 @@ cat << EOF | ./run.sh -
 		"in_features": 100,
 		"out_features": 1
 	}
-	},
-	{
-	"class": "nnClamp",
-	"kargs": {
-		"min": -20,
-		"max": 20
-	}
 	}
 	],
   "alpha":"sigmoid"

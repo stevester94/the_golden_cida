@@ -36,44 +36,6 @@ cat << EOF | ./run.sh -
   ],
   "x_net":[
     {
-      "class":"Conv1d",
-      "kargs":{
-        "in_channels":2,
-        "out_channels":50,
-        "kernel_size":7,
-        "stride":1,
-        "padding":0
-      }
-    },
-    {
-      "class":"ReLU",
-      "kargs":{
-        "inplace":true
-      }
-    },
-    {
-      "class":"Conv1d",
-      "kargs":{
-        "in_channels":50,
-        "out_channels":50,
-        "kernel_size":7,
-        "stride":2,
-        "padding":0
-      }
-    },
-    {
-      "class":"ReLU",
-      "kargs":{
-        "inplace":true
-      }
-    },
-    {
-      "class":"Dropout",
-      "kargs":{
-        "p":0.5
-      }
-    },
-    {
       "class":"Flatten",
       "kargs":{
         
@@ -92,7 +54,7 @@ cat << EOF | ./run.sh -
     {
       "class":"Linear",
       "kargs":{
-        "in_features":2901,
+        "in_features":257,
         "out_features":256
       }
     },

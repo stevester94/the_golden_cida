@@ -64,10 +64,15 @@ cat << EOF | ./run.sh -
       }
     },
     {
-      "class":"Linear",
+      "class":"ReLU",
       "kargs":{
-        "in_features":256,
-        "out_features":256
+        "inplace":true
+      }
+    },
+    {
+      "class":"Dropout",
+      "kargs":{
+        "p":0.5
       }
     },
     {
@@ -75,6 +80,37 @@ cat << EOF | ./run.sh -
       "kargs":{
         "in_features":256,
         "out_features":256
+      }
+    },
+    {
+      "class":"ReLU",
+      "kargs":{
+        "inplace":true
+      }
+    },
+    {
+      "class":"Dropout",
+      "kargs":{
+        "p":0.5
+      }
+    },
+    {
+      "class":"Linear",
+      "kargs":{
+        "in_features":256,
+        "out_features":256
+      }
+    },
+    {
+      "class":"ReLU",
+      "kargs":{
+        "inplace":true
+      }
+    },
+    {
+      "class":"Dropout",
+      "kargs":{
+        "p":0.5
       }
     }
   ],

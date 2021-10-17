@@ -30,7 +30,7 @@ class Dummy_CIDA_Dataset(torch.utils.data.Dataset):
         for u in domains:
             for y in range(num_classes):
                 for i in range(num_unique_examples_per_class):
-                    x = np.array(x_source * y * u, dtype=np.single)
+                    x = np.array(x_source * u + (y+1), dtype=np.single)
                     u_array = np.array([u], dtype=np.single)
 
                     examples.append((x,y,u_array))

@@ -4,7 +4,7 @@ export PYTHONPATH=/usr/local/lib/python3/dist-packages:/usr/local/lib/python3.6/
 cat << EOF | ./run.sh -
 {
   "experiment_name":"Prove CIDA Works",
-  "lr":0.0005,
+  "lr":0.0001,
   "n_epoch":100,
   "batch_size":128,
   "patience":20,

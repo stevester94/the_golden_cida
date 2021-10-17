@@ -5,7 +5,7 @@ cat << EOF | ./run.sh -
 {
   "experiment_name":"Prove CIDA Works",
   "lr":0.0001,
-  "n_epoch":100,
+  "n_epoch":20,
   "batch_size":128,
   "patience":20,
   "seed":1337,
@@ -154,6 +154,6 @@ cat << EOF | ./run.sh -
       }
     }
   ],
-  "alpha":"null"
+  "alpha":"sigmoid"
 }
 EOF

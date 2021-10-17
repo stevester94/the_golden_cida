@@ -91,27 +91,27 @@ class Configurable_CIDA(nn.Module):
         }
         """
 
-        # while True:
         y_hat, u_hat = self.forward(x,u)
 
         # Do domain's loss first, it is straight forward
         domain_loss = self.domain_loss_object(u_hat, u)
         label_loss = self.label_loss_object(y_hat[s==1], y[s==1])
 
-        # encoder_loss = - alpha * domain_loss
+        # Note the negation for domain loss against encoder
         encoder_loss = label_loss
+        encoder_loss += - alpha * domain_loss
 
         # self.set_requires_grad(self.class_net, False)
         # self.set_requires_grad(self.domain_net, True)
         self.non_domain_optimizer.zero_grad()
         self.domain_optimizer.zero_grad()
 
-        # self.set_requires_grad(self.domain_net, True)
-        # self.set_requires_grad(self.x_net, False)
-        # self.set_requires_grad(self.u_net, False)
-        # self.set_requires_grad(self.merge_net, False)
-        # self.set_requires_grad(self.class_net, False)
-        # domain_loss.backward(retain_graph=True)
+        self.set_requires_grad(self.domain_net, True)
+        self.set_requires_grad(self.x_net, False)
+        self.set_requires_grad(self.u_net, False)
+        self.set_requires_grad(self.merge_net, False)
+        self.set_requires_grad(self.class_net, False)
+        domain_loss.backward(retain_graph=True)
 
         self.set_requires_grad(self.domain_net, False)
         self.set_requires_grad(self.x_net, True)
@@ -120,7 +120,7 @@ class Configurable_CIDA(nn.Module):
         self.set_requires_grad(self.class_net, True)
         encoder_loss.backward(retain_graph=True)
 
-        # self.domain_optimizer.step()
+        self.domain_optimizer.step()
         self.non_domain_optimizer.step()
 
             # d_dyuh = list(map(lambda p: torch.flatten(p), self.domain_net.parameters()))

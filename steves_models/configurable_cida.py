@@ -106,12 +106,12 @@ class Configurable_CIDA(nn.Module):
         self.non_domain_optimizer.zero_grad()
         self.domain_optimizer.zero_grad()
 
-        self.set_requires_grad(self.domain_net, True)
-        self.set_requires_grad(self.x_net, False)
-        self.set_requires_grad(self.u_net, False)
-        self.set_requires_grad(self.merge_net, False)
-        self.set_requires_grad(self.class_net, False)
-        domain_loss.backward(retain_graph=True)
+        # self.set_requires_grad(self.domain_net, True)
+        # self.set_requires_grad(self.x_net, False)
+        # self.set_requires_grad(self.u_net, False)
+        # self.set_requires_grad(self.merge_net, False)
+        # self.set_requires_grad(self.class_net, False)
+        # domain_loss.backward(retain_graph=True)
 
         self.set_requires_grad(self.domain_net, False)
         self.set_requires_grad(self.x_net, True)

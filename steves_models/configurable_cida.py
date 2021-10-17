@@ -98,8 +98,8 @@ class Configurable_CIDA(nn.Module):
         domain_loss = self.domain_loss_object(u_hat, u)
         label_loss = self.label_loss_object(y_hat[s==1], y[s==1])
 
-        encoder_loss = - alpha * domain_loss
-        encoder_loss += label_loss
+        # encoder_loss = - alpha * domain_loss
+        encoder_loss = label_loss
 
         # self.set_requires_grad(self.class_net, False)
         # self.set_requires_grad(self.domain_net, True)

@@ -120,7 +120,7 @@ class Configurable_CIDA(nn.Module):
         self.set_requires_grad(self.class_net, True)
         encoder_loss.backward(retain_graph=True)
 
-        self.domain_optimizer.step()
+        # self.domain_optimizer.step()
         self.non_domain_optimizer.step()
 
             # d_dyuh = list(map(lambda p: torch.flatten(p), self.domain_net.parameters()))

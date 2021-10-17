@@ -45,8 +45,13 @@ cat << EOF | ./run.sh -
   "u_net":[
     {
       "class":"Identity",
+      "kargs":{}
+    },
+    {
+      "class":"Linear",
       "kargs":{
-        
+        "in_features":1,
+        "out_features":256
       }
     }
   ],
@@ -54,7 +59,7 @@ cat << EOF | ./run.sh -
     {
       "class":"Linear",
       "kargs":{
-        "in_features":257,
+        "in_features":512,
         "out_features":256
       }
     },

@@ -79,16 +79,19 @@ cat << EOF | ./run.sh -
 	}
 	],
 	"u_net": [
-	{
-	"class": "Identity",
-	"kargs": {}
-	}
+        {
+            "class": "Linear",
+            "kargs": {
+                "in_features": 1,
+                "out_features": 256
+            }
+        }
 	],
 	"merge_net": [
 	{
 	"class": "Linear",
 	"kargs": {
-		"in_features": 2901,
+		"in_features": 3156,
 		"out_features": 256
 	}
 	}
